@@ -1,0 +1,2703 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lumina & Lens Studio | Fine Art & Commercial Photography</title>
+   
+
+    <!-- Google Fonts: Cormorant Garamond & Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+         <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@5/dist/email.min.js">
+</script>
+<script type="text/javascript">
+   (function(){
+      emailjs.init({
+        publicKey: "0_BpS9uYpf_tcuMqW",
+      });
+   })();
+</script>
+
+    <style>
+        /* ==================== CSS CUSTOM PROPERTIES ==================== */
+        :root {
+            /* Color Palette */
+            --bg-obsidian: #0f0f11;
+            --bg-charcoal: #16161a;
+            --bg-surface: #1d1d22;
+            --border-subtle: rgba(255, 255, 255, 0.08);
+            --border-strong: rgba(255, 255, 255, 0.16);
+            --text-alabaster: #f5f5f0;
+            --text-silver: #a0a0a8;
+            --text-muted: #6e6e77;
+            --accent-gold: #d4af37;
+            --accent-gold-hover: #e5c158;
+            --accent-gold-dim: rgba(212, 175, 55, 0.14);
+            --accent-gold-border: rgba(212, 175, 55, 0.45);
+            --error-rose: #fb7185;
+
+            /* Typography */
+            --font-serif: 'Cormorant Garamond', Georgia, serif;
+            --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+
+            /* Spacing & Radii */
+            --container-max: 1280px;
+            --radius-sm: 8px;
+            --radius-md: 16px;
+            --radius-lg: 20px;
+            --radius-full: 9999px;
+
+            /* Transitions & Shadows */
+            --ease-editorial: cubic-bezier(0.16, 1, 0.3, 1);
+            --transition-fast: 0.25s ease;
+            --transition-med: 0.4s var(--ease-editorial);
+            --shadow-card: 0 20px 45px rgba(0, 0, 0, 0.45);
+            --shadow-gold: 0 12px 30px rgba(212, 175, 55, 0.18);
+        }
+
+        /* ==================== RESET & BASE STYLES ==================== */
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            background-color: var(--bg-obsidian);
+            color: var(--text-alabaster);
+            font-family: var(--font-sans);
+            font-size: 16px;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        body {
+            background-color: var(--bg-obsidian);
+            color: var(--text-alabaster);
+            overflow-x: hidden;
+        }
+
+        ::selection {
+            background-color: var(--accent-gold);
+            color: var(--bg-obsidian);
+        }
+
+        img {
+            display: block;
+            max-width: 100%;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        button,
+        input,
+        select,
+        textarea {
+            font-family: inherit;
+            color: inherit;
+        }
+
+        button {
+            cursor: pointer;
+            background: none;
+            border: none;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg-obsidian);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #2b2b33;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--accent-gold);
+        }
+
+        /* ==================== LAYOUT UTILITIES ==================== */
+        .container {
+            width: 100%;
+            max-width: var(--container-max);
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        @media (min-width: 768px) {
+            .container {
+                padding: 0 3rem;
+            }
+        }
+
+        .section-padding {
+            padding: 6rem 0;
+        }
+
+        @media (min-width: 768px) {
+            .section-padding {
+                padding: 8.5rem 0;
+            }
+        }
+
+        .eyebrow {
+            display: inline-block;
+            font-size: 0.72rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.3em;
+            color: var(--accent-gold);
+            margin-bottom: 0.9rem;
+        }
+
+        .section-title {
+            font-family: var(--font-serif);
+            font-size: clamp(2.4rem, 5vw, 3.85rem);
+            font-weight: 400;
+            line-height: 1.1;
+            color: var(--text-alabaster);
+        }
+
+        .section-subtitle {
+            color: var(--text-silver);
+            font-size: 0.98rem;
+            font-weight: 300;
+            line-height: 1.75;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.6rem;
+            padding: 0.95rem 2rem;
+            border-radius: var(--radius-full);
+            font-size: 0.72rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            transition: all var(--transition-fast);
+        }
+
+        .btn-gold {
+            background-color: var(--accent-gold);
+            color: var(--bg-obsidian);
+            box-shadow: var(--shadow-gold);
+        }
+
+        .btn-gold:hover {
+            background-color: var(--accent-gold-hover);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            border: 1px solid rgba(245, 245, 240, 0.24);
+            background-color: rgba(255, 255, 255, 0.04);
+            backdrop-filter: blur(8px);
+            color: var(--text-alabaster);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--accent-gold);
+            color: var(--accent-gold);
+            transform: translateY(-2px);
+        }
+
+        .btn-gold-outline {
+            border: 1px solid var(--accent-gold-border);
+            color: var(--accent-gold);
+            background: transparent;
+        }
+
+        .btn-gold-outline:hover {
+            background-color: var(--accent-gold);
+            color: var(--bg-obsidian);
+        }
+
+        .btn-full {
+            width: 100%;
+        }
+
+        /* ==================== KEYFRAME ANIMATIONS ==================== */
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(26px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slowZoom {
+            0% {
+                transform: scale(1);
+            }
+
+            100% {
+                transform: scale(1.08);
+            }
+        }
+
+        .animate-fade-up {
+            opacity: 0;
+            animation: fadeUp 0.95s var(--ease-editorial) forwards;
+        }
+
+        .delay-1 {
+            animation-delay: 0.12s;
+        }
+
+        .delay-2 {
+            animation-delay: 0.24s;
+        }
+
+        .delay-3 {
+            animation-delay: 0.36s;
+        }
+
+        /* ==================== STICKY GLASSMORPHISM HEADER ==================== */
+        .site-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            padding: 1.35rem 0;
+            border-bottom: 1px solid transparent;
+            transition: all 0.35s ease;
+        }
+
+        .site-header.scrolled {
+            padding: 0.95rem 0;
+            background-color: rgba(15, 15, 17, 0.88);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border-bottom-color: var(--border-subtle);
+        }
+
+        .header-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .brand-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.85rem;
+        }
+
+        .brand-monogram {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            border: 1px solid var(--accent-gold-border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-serif);
+            font-style: italic;
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: var(--accent-gold);
+            transition: border-color var(--transition-fast), transform var(--transition-fast);
+        }
+
+        .brand-logo:hover .brand-monogram {
+            border-color: var(--accent-gold);
+            transform: rotate(-6deg);
+        }
+
+        .brand-name {
+            font-family: var(--font-serif);
+            font-size: 1.55rem;
+            letter-spacing: 0.04em;
+            color: var(--text-alabaster);
+        }
+
+        .brand-name em {
+            color: var(--accent-gold);
+            font-style: italic;
+        }
+
+        .desktop-nav {
+            display: none;
+            align-items: center;
+            gap: 2.5rem;
+        }
+
+        @media (min-width: 960px) {
+            .desktop-nav {
+                display: flex;
+            }
+        }
+
+        .desktop-nav a {
+            font-size: 0.74rem;
+            text-transform: uppercase;
+            letter-spacing: 0.22em;
+            color: rgba(245, 245, 240, 0.78);
+            position: relative;
+            padding: 0.25rem 0;
+            transition: color var(--transition-fast);
+        }
+
+        .desktop-nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background-color: var(--accent-gold);
+            transition: width 0.3s ease;
+        }
+
+        .desktop-nav a:hover {
+            color: var(--accent-gold);
+        }
+
+        .desktop-nav a:hover::after {
+            width: 100%;
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .header-cta {
+            display: none;
+            padding: 0.7rem 1.45rem;
+            font-size: 0.68rem;
+        }
+
+        @media (min-width: 600px) {
+            .header-cta {
+                display: inline-flex;
+            }
+        }
+
+        .mobile-toggle {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 42px;
+            height: 42px;
+            border-radius: var(--radius-sm);
+            border: 1px solid var(--border-subtle);
+            color: var(--text-alabaster);
+            transition: all var(--transition-fast);
+        }
+
+        .mobile-toggle:hover {
+            border-color: var(--accent-gold);
+            color: var(--accent-gold);
+        }
+
+        @media (min-width: 960px) {
+            .mobile-toggle {
+                display: none;
+            }
+        }
+
+        /* Mobile Drawer */
+        .mobile-drawer {
+            display: none;
+            margin-top: 1rem;
+            background-color: rgba(22, 22, 26, 0.97);
+            backdrop-filter: blur(18px);
+            border: 1px solid var(--border-strong);
+            border-radius: var(--radius-md);
+            padding: 1.5rem;
+            box-shadow: var(--shadow-card);
+        }
+
+        .mobile-drawer.open {
+            display: block;
+            animation: fadeUp 0.35s var(--ease-editorial) forwards;
+        }
+
+        .mobile-drawer nav {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .mobile-drawer a.mobile-link {
+            padding: 0.9rem 0;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.22em;
+            color: var(--text-alabaster);
+            border-bottom: 1px solid var(--border-subtle);
+            transition: color var(--transition-fast);
+        }
+
+        .mobile-drawer a.mobile-link:hover {
+            color: var(--accent-gold);
+        }
+
+        .mobile-drawer .btn {
+            margin-top: 1.25rem;
+            width: 100%;
+        }
+
+        /* ==================== HERO SECTION ==================== */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 7rem 0 4rem;
+            overflow: hidden;
+        }
+
+        .hero-media {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .hero-media img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            opacity: 0.44;
+            animation: slowZoom 24s ease-in-out infinite alternate;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(circle at center, rgba(15, 15, 17, 0.28) 0%, rgba(15, 15, 17, 0.88) 100%),
+                linear-gradient(to bottom, rgba(15, 15, 17, 0.75) 0%, rgba(15, 15, 17, 0.25) 45%, var(--bg-obsidian) 100%);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 920px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            padding: 0.45rem 1.15rem;
+            border-radius: var(--radius-full);
+            border: 1px solid var(--accent-gold-border);
+            background-color: rgba(15, 15, 17, 0.55);
+            backdrop-filter: blur(8px);
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.28em;
+            color: var(--accent-gold);
+            margin-bottom: 1.75rem;
+        }
+
+        .hero-title {
+            font-family: var(--font-serif);
+            font-size: clamp(2.9rem, 7.2vw, 5.75rem);
+            font-weight: 400;
+            line-height: 1.05;
+            letter-spacing: -0.01em;
+            color: var(--text-alabaster);
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-title em {
+            font-style: italic;
+            color: var(--accent-gold);
+            font-weight: 400;
+        }
+
+        .hero-subtitle {
+            max-width: 620px;
+            margin: 0 auto 2.5rem;
+            font-size: clamp(0.98rem, 1.5vw, 1.12rem);
+            font-weight: 300;
+            line-height: 1.8;
+            color: rgba(245, 245, 240, 0.78);
+        }
+
+        .hero-cta-group {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        @media (min-width: 560px) {
+            .hero-cta-group {
+                flex-direction: row;
+                gap: 1.25rem;
+            }
+        }
+
+        .hero-cta-group .btn {
+            width: 100%;
+        }
+
+        @media (min-width: 560px) {
+            .hero-cta-group .btn {
+                width: auto;
+            }
+        }
+
+        .scroll-cue {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-muted);
+            font-size: 0.62rem;
+            text-transform: uppercase;
+            letter-spacing: 0.3em;
+        }
+
+        @media (min-width: 768px) {
+            .scroll-cue {
+                display: flex;
+            }
+        }
+
+        .scroll-line {
+            width: 1px;
+            height: 38px;
+            background: linear-gradient(to bottom, var(--accent-gold), transparent);
+        }
+
+        /* ==================== PORTFOLIO GALLERY SECTION ==================== */
+        .portfolio-section {
+            background-color: var(--bg-obsidian);
+        }
+
+        .portfolio-header {
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+            margin-bottom: 3rem;
+        }
+
+        @media (min-width: 900px) {
+            .portfolio-header {
+                flex-direction: row;
+                align-items: flex-end;
+                justify-content: space-between;
+            }
+        }
+
+        .portfolio-header .section-subtitle {
+            max-width: 440px;
+        }
+
+        /* Filter Pills */
+        .filter-bar {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.65rem;
+            margin-bottom: 2.75rem;
+        }
+
+        .filter-btn {
+            padding: 0.65rem 1.35rem;
+            border-radius: var(--radius-full);
+            font-size: 0.72rem;
+            text-transform: uppercase;
+            letter-spacing: 0.18em;
+            background-color: var(--bg-charcoal);
+            color: var(--text-silver);
+            border: 1px solid var(--border-subtle);
+            position: relative;
+            transition: all var(--transition-fast);
+        }
+
+        .filter-btn:hover {
+            border-color: var(--accent-gold-border);
+            color: var(--text-alabaster);
+        }
+
+        .filter-btn.active {
+            background-color: var(--accent-gold);
+            color: var(--bg-obsidian);
+            border-color: var(--accent-gold);
+            font-weight: 600;
+            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.22);
+        }
+
+        /* Masonry-Style CSS Column Grid */
+        .masonry-grid {
+            column-count: 1;
+            column-gap: 1.5rem;
+        }
+
+        @media (min-width: 640px) {
+            .masonry-grid {
+                column-count: 2;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .masonry-grid {
+                column-count: 3;
+            }
+        }
+
+        .gallery-card {
+            break-inside: avoid;
+            margin-bottom: 1.5rem;
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            background-color: var(--bg-charcoal);
+            border: 1px solid var(--border-subtle);
+            position: relative;
+            cursor: pointer;
+            box-shadow: var(--shadow-card);
+            transition: transform var(--transition-med), border-color var(--transition-fast);
+        }
+
+        .gallery-card:hover {
+            border-color: var(--accent-gold-border);
+            transform: translateY(-4px);
+        }
+
+        .gallery-thumb {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+        }
+
+        .ratio-3-4 {
+            aspect-ratio: 3 / 4;
+        }
+
+        .ratio-4-5 {
+            aspect-ratio: 4 / 5;
+        }
+
+        .ratio-4-3 {
+            aspect-ratio: 4 / 3;
+        }
+
+        .gallery-thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.75s var(--ease-editorial);
+        }
+
+        .gallery-card:hover .gallery-thumb img {
+            transform: scale(1.06);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(15, 15, 17, 0.94) 0%, rgba(15, 15, 17, 0.35) 55%, transparent 100%);
+            opacity: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 1.5rem;
+            transition: opacity 0.35s ease;
+        }
+
+        .gallery-card:hover .gallery-overlay,
+        .gallery-card:focus-visible .gallery-overlay {
+            opacity: 1;
+        }
+
+        .overlay-cat {
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 0.25em;
+            color: var(--accent-gold);
+            margin-bottom: 0.35rem;
+            transform: translateY(10px);
+            transition: transform 0.35s var(--ease-editorial);
+        }
+
+        .overlay-title {
+            font-family: var(--font-serif);
+            font-size: 1.55rem;
+            font-weight: 400;
+            color: var(--text-alabaster);
+            margin-bottom: 0.75rem;
+            transform: translateY(10px);
+            transition: transform 0.35s var(--ease-editorial) 0.04s;
+        }
+
+        .overlay-meta {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-top: 0.65rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.14);
+            font-size: 0.72rem;
+            color: var(--text-silver);
+            transform: translateY(10px);
+            transition: transform 0.35s var(--ease-editorial) 0.08s;
+        }
+
+        .gallery-card:hover .overlay-cat,
+        .gallery-card:hover .overlay-title,
+        .gallery-card:hover .overlay-meta {
+            transform: translateY(0);
+        }
+
+        .inspect-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            color: var(--accent-gold);
+            font-weight: 500;
+        }
+
+        /* ==================== ABOUT STUDIO SECTION ==================== */
+        .about-section {
+            background-color: var(--bg-charcoal);
+            border-top: 1px solid var(--border-subtle);
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3.5rem;
+            align-items: center;
+        }
+
+        @media (min-width: 960px) {
+            .about-grid {
+                grid-template-columns: 5fr 7fr;
+                gap: 4.5rem;
+            }
+        }
+
+        .about-portrait-wrap {
+            position: relative;
+        }
+
+        .about-portrait-card {
+            position: relative;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            border: 1px solid var(--border-strong);
+            box-shadow: var(--shadow-card);
+            z-index: 2;
+        }
+
+        .about-portrait-card img {
+            width: 100%;
+            height: 520px;
+            object-fit: cover;
+            filter: grayscale(100%);
+            transition: filter 0.7s ease, transform 0.7s ease;
+        }
+
+        .about-portrait-card:hover img {
+            filter: grayscale(0%);
+            transform: scale(1.03);
+        }
+
+        .portrait-caption {
+            position: absolute;
+            inset: auto 0 0 0;
+            padding: 2.5rem 1.75rem 1.75rem;
+            background: linear-gradient(to top, rgba(15, 15, 17, 0.95), transparent);
+        }
+
+        .portrait-caption h3 {
+            font-family: var(--font-serif);
+            font-style: italic;
+            font-size: 1.65rem;
+            font-weight: 400;
+            color: var(--text-alabaster);
+        }
+
+        .portrait-caption p {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.25em;
+            color: var(--accent-gold);
+            margin-top: 0.25rem;
+        }
+
+        .about-frame-offset {
+            display: none;
+        }
+
+        @media (min-width: 640px) {
+            .about-frame-offset {
+                display: block;
+                position: absolute;
+                top: 1.25rem;
+                left: 1.25rem;
+                right: -1.25rem;
+                bottom: -1.25rem;
+                border: 1px solid var(--accent-gold-border);
+                border-radius: var(--radius-lg);
+                z-index: 1;
+            }
+        }
+
+        .about-narrative {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .about-narrative p {
+            color: var(--text-silver);
+            font-weight: 300;
+            line-height: 1.85;
+            font-size: 1rem;
+        }
+
+        .about-narrative strong {
+            color: var(--text-alabaster);
+            font-weight: 500;
+        }
+
+        /* Studio Key Metrics */
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            padding: 1.75rem 0;
+            border-top: 1px solid var(--border-subtle);
+            border-bottom: 1px solid var(--border-subtle);
+            margin: 0.5rem 0;
+        }
+
+        .metric-item h4 {
+            font-family: var(--font-serif);
+            font-size: clamp(1.9rem, 3.5vw, 2.75rem);
+            font-weight: 500;
+            color: var(--accent-gold);
+            line-height: 1;
+            margin-bottom: 0.4rem;
+        }
+
+        .metric-item span {
+            display: block;
+            font-size: 0.72rem;
+            text-transform: uppercase;
+            letter-spacing: 0.14em;
+            color: var(--text-silver);
+        }
+
+        /* Equipment Highlights */
+        .gear-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.25rem;
+        }
+
+        @media (min-width: 640px) {
+            .gear-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        .gear-box {
+            background-color: var(--bg-obsidian);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-md);
+            padding: 1.25rem 1.4rem;
+        }
+
+        .gear-box h5 {
+            font-family: var(--font-serif);
+            font-size: 1.25rem;
+            font-weight: 500;
+            color: var(--text-alabaster);
+            margin-bottom: 0.35rem;
+        }
+
+        .gear-box p {
+            font-size: 0.82rem;
+            color: var(--text-silver);
+            line-height: 1.6;
+        }
+
+        /* ==================== SERVICE PACKAGES SECTION ==================== */
+        .packages-section {
+            background-color: var(--bg-obsidian);
+        }
+
+        .section-center-header {
+            text-align: center;
+            max-width: 680px;
+            margin: 0 auto 4rem;
+        }
+
+        .section-center-header .section-title {
+            margin-bottom: 1rem;
+        }
+
+        .packages-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            align-items: stretch;
+        }
+
+        @media (min-width: 960px) {
+            .packages-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .package-card {
+            background-color: var(--bg-charcoal);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-lg);
+            padding: 2.5rem 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            transition: transform var(--transition-med), border-color var(--transition-fast);
+        }
+
+        .package-card:hover {
+            transform: translateY(-6px);
+            border-color: var(--accent-gold-border);
+        }
+
+        .package-card.featured {
+            background-color: var(--bg-surface);
+            border: 1px solid var(--accent-gold);
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.65);
+        }
+
+        @media (min-width: 960px) {
+            .package-card.featured {
+                transform: translateY(-12px);
+            }
+
+            .package-card.featured:hover {
+                transform: translateY(-18px);
+            }
+        }
+
+        .popular-badge {
+            position: absolute;
+            top: -13px;
+            right: 1.75rem;
+            background-color: var(--accent-gold);
+            color: var(--bg-obsidian);
+            font-size: 0.64rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            padding: 0.35rem 0.9rem;
+            border-radius: var(--radius-full);
+        }
+
+        .package-top-meta {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 1.25rem;
+            color: var(--accent-gold);
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.22em;
+        }
+
+        .package-title {
+            font-family: var(--font-serif);
+            font-size: 2rem;
+            font-weight: 400;
+            color: var(--text-alabaster);
+            margin-bottom: 0.6rem;
+        }
+
+        .package-desc {
+            font-size: 0.88rem;
+            color: var(--text-silver);
+            font-weight: 300;
+            line-height: 1.65;
+            margin-bottom: 1.5rem;
+        }
+
+        .package-price-box {
+            padding: 1.25rem 0;
+            margin-bottom: 1.5rem;
+            border-top: 1px solid var(--border-subtle);
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .price-label {
+            display: block;
+            font-size: 0.68rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: var(--text-muted);
+            margin-bottom: 0.2rem;
+        }
+
+        .price-amount {
+            font-family: var(--font-serif);
+            font-size: 2.75rem;
+            font-weight: 500;
+            color: var(--text-alabaster);
+            line-height: 1.1;
+        }
+
+        .package-card.featured .price-amount {
+            color: var(--accent-gold);
+        }
+
+        .deliverables-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.9rem;
+            margin-bottom: 2.25rem;
+        }
+
+        .deliverables-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            font-size: 0.88rem;
+            color: rgba(245, 245, 240, 0.85);
+            font-weight: 300;
+        }
+
+        .deliverables-list svg {
+            color: var(--accent-gold);
+            flex-shrink: 0;
+            margin-top: 0.2rem;
+        }
+
+        /* ==================== BOOKING & INQUIRY SECTION ==================== */
+        .inquiry-section {
+            background-color: var(--bg-charcoal);
+            border-top: 1px solid var(--border-subtle);
+        }
+
+        .inquiry-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3.5rem;
+        }
+
+        @media (min-width: 960px) {
+            .inquiry-grid {
+                grid-template-columns: 5fr 7fr;
+                gap: 4.5rem;
+            }
+        }
+
+        .inquiry-info {
+            display: flex;
+            flex-direction: column;
+            gap: 1.75rem;
+        }
+
+        .guarantee-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            padding: 0.6rem 1.1rem;
+            border-radius: var(--radius-full);
+            background-color: var(--accent-gold-dim);
+            border: 1px solid var(--accent-gold-border);
+            color: var(--accent-gold);
+            font-size: 0.74rem;
+            font-weight: 500;
+            width: fit-content;
+        }
+
+        .contact-details-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.4rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border-subtle);
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .contact-icon-circle {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            background-color: var(--bg-obsidian);
+            border: 1px solid var(--border-subtle);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent-gold);
+            flex-shrink: 0;
+        }
+
+        .contact-item h4 {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: var(--text-muted);
+            margin-bottom: 0.2rem;
+        }
+
+        .contact-item p {
+            font-size: 0.92rem;
+            color: var(--text-alabaster);
+            font-weight: 300;
+            line-height: 1.55;
+        }
+
+        /* Form Panel */
+        .form-card {
+            background-color: var(--bg-obsidian);
+            border: 1px solid var(--border-strong);
+            border-radius: var(--radius-lg);
+            padding: 2rem 1.5rem;
+            box-shadow: var(--shadow-card);
+        }
+
+        @media (min-width: 640px) {
+            .form-card {
+                padding: 2.75rem;
+            }
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.35rem;
+            margin-bottom: 1.35rem;
+        }
+
+        @media (min-width: 640px) {
+            .form-row {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 1.35rem;
+        }
+
+        .form-row .form-group {
+            margin-bottom: 0;
+        }
+
+        .form-group label {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.18em;
+            color: var(--text-silver);
+            margin-bottom: 0.55rem;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 0.9rem 1.1rem;
+            border-radius: var(--radius-sm);
+            background-color: var(--bg-charcoal);
+            border: 1px solid var(--border-strong);
+            color: var(--text-alabaster);
+            font-size: 0.92rem;
+            transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+        }
+
+        .form-control::placeholder {
+            color: var(--text-muted);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--accent-gold);
+            box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.12);
+        }
+
+        textarea.form-control {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        input[type="date"]::-webkit-calendar-picker-indicator {
+            filter: invert(0.8) sepia(100%) saturate(300%) hue-rotate(10deg);
+            cursor: pointer;
+        }
+
+        .error-text {
+            display: none;
+            font-size: 0.76rem;
+            color: var(--error-rose);
+            margin-top: 0.4rem;
+        }
+
+        .error-text.visible {
+            display: block;
+        }
+
+        .form-control.invalid {
+            border-color: var(--error-rose);
+        }
+
+        /* Inline Confirmation Panel */
+        .confirmation-panel {
+            display: none;
+            text-align: center;
+            padding: 2.5rem 1rem;
+        }
+
+        .confirmation-panel.visible {
+            display: block;
+            animation: fadeUp 0.5s var(--ease-editorial) forwards;
+        }
+
+        .confirmation-icon {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            background-color: var(--accent-gold-dim);
+            border: 1px solid var(--accent-gold);
+            color: var(--accent-gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+        }
+
+        .confirmation-panel h3 {
+            font-family: var(--font-serif);
+            font-size: 2.25rem;
+            font-weight: 400;
+            color: var(--text-alabaster);
+            margin-bottom: 0.85rem;
+        }
+
+        .confirmation-panel p {
+            color: var(--text-silver);
+            font-size: 0.95rem;
+            font-weight: 300;
+            line-height: 1.75;
+            max-width: 460px;
+            margin: 0 auto 1.75rem;
+        }
+
+        .confirmation-panel strong {
+            color: var(--text-alabaster);
+            font-weight: 500;
+        }
+
+        .confirmation-panel span.gold-highlight {
+            color: var(--accent-gold);
+        }
+
+        /* ==================== FOOTER ==================== */
+        .site-footer {
+            background-color: var(--bg-obsidian);
+            border-top: 1px solid var(--border-subtle);
+            padding: 3.25rem 0;
+        }
+
+        .footer-inner {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1.75rem;
+            text-align: center;
+        }
+
+        @media (min-width: 840px) {
+            .footer-inner {
+                flex-direction: row;
+                text-align: left;
+            }
+        }
+
+        .footer-copy {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            letter-spacing: 0.04em;
+        }
+
+        .footer-links {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .social-link {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            border: 1px solid var(--border-subtle);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-silver);
+            transition: all var(--transition-fast);
+        }
+
+        .social-link:hover {
+            border-color: var(--accent-gold);
+            color: var(--accent-gold);
+            transform: translateY(-2px);
+        }
+
+        .back-to-top {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
+            font-size: 0.72rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: var(--text-silver);
+            transition: color var(--transition-fast);
+        }
+
+        .back-to-top:hover {
+            color: var(--accent-gold);
+        }
+
+        /* ==================== FULL-SCREEN LIGHTBOX MODAL ==================== */
+        .lightbox-backdrop {
+            position: fixed;
+            inset: 0;
+            z-index: 200;
+            background-color: rgba(10, 10, 12, 0.96);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 1.25rem;
+        }
+
+        .lightbox-backdrop.open {
+            display: flex;
+            animation: fadeUp 0.3s ease forwards;
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 1.25rem;
+            right: 1.25rem;
+            z-index: 210;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.08);
+            border: 1px solid var(--border-strong);
+            color: var(--text-alabaster);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all var(--transition-fast);
+        }
+
+        .lightbox-close:hover {
+            background-color: var(--accent-gold);
+            color: var(--bg-obsidian);
+            border-color: var(--accent-gold);
+        }
+
+        .lightbox-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 210;
+            width: 46px;
+            height: 46px;
+            border-radius: 50%;
+            background-color: rgba(15, 15, 17, 0.75);
+            border: 1px solid var(--border-strong);
+            color: var(--text-alabaster);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all var(--transition-fast);
+        }
+
+        .lightbox-nav:hover {
+            border-color: var(--accent-gold);
+            color: var(--accent-gold);
+        }
+
+        .lightbox-prev {
+            left: 1rem;
+        }
+
+        .lightbox-next {
+            right: 1rem;
+        }
+
+        @media (min-width: 768px) {
+            .lightbox-prev {
+                left: 2rem;
+            }
+
+            .lightbox-next {
+                right: 2rem;
+            }
+        }
+
+        .lightbox-dialog {
+            width: 100%;
+            max-width: 1180px;
+            max-height: 92vh;
+            overflow-y: auto;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.75rem;
+            align-items: center;
+            padding: 2.5rem 0.5rem 1rem;
+        }
+
+        @media (min-width: 960px) {
+            .lightbox-dialog {
+                grid-template-columns: 7fr 5fr;
+                gap: 2.5rem;
+                padding: 0 2.5rem;
+                overflow-y: visible;
+            }
+        }
+
+        .lightbox-media {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .lightbox-media img {
+            max-height: 58vh;
+            width: auto;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--border-strong);
+            box-shadow: var(--shadow-card);
+            object-fit: contain;
+        }
+
+        @media (min-width: 960px) {
+            .lightbox-media img {
+                max-height: 82vh;
+            }
+        }
+
+        .lightbox-details {
+            background-color: var(--bg-charcoal);
+            border: 1px solid var(--border-strong);
+            border-radius: var(--radius-lg);
+            padding: 1.75rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.15rem;
+        }
+
+        @media (min-width: 640px) {
+            .lightbox-details {
+                padding: 2.25rem;
+            }
+        }
+
+        .lightbox-top-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .lightbox-cat {
+            font-size: 0.68rem;
+            text-transform: uppercase;
+            letter-spacing: 0.25em;
+            color: var(--accent-gold);
+            font-weight: 600;
+        }
+
+        .lightbox-counter {
+            font-size: 0.76rem;
+            color: var(--text-muted);
+            letter-spacing: 0.1em;
+        }
+
+        .lightbox-title {
+            font-family: var(--font-serif);
+            font-size: 2rem;
+            font-weight: 400;
+            line-height: 1.15;
+            color: var(--text-alabaster);
+        }
+
+        .lightbox-story {
+            font-size: 0.9rem;
+            color: var(--text-silver);
+            font-weight: 300;
+            line-height: 1.7;
+        }
+
+        .exif-table {
+            border-top: 1px solid var(--border-subtle);
+            padding-top: 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.65rem;
+            font-size: 0.8rem;
+        }
+
+        .exif-row {
+            display: flex;
+            justify-content: space-between;
+            gap: 1rem;
+        }
+
+        .exif-label {
+            text-transform: uppercase;
+            letter-spacing: 0.14em;
+            font-size: 0.68rem;
+            color: var(--text-muted);
+        }
+
+        .exif-value {
+            color: var(--text-alabaster);
+            text-align: right;
+        }
+
+        .exif-value.gold {
+            color: var(--accent-gold);
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ==================== STICKY GLASSMORPHISM HEADER ==================== -->
+    <header id="site-header" class="site-header">
+        <div class="container">
+            <div class="header-inner">
+                <!-- Brand Monogram & Name -->
+                <a href="#top" class="brand-logo">
+                    <span class="brand-monogram">W</span>
+                    <span class="brand-name">Wave <em>&amp;</em> Lens</span>
+                </a>
+
+                <!-- Desktop Navigation -->
+                <nav class="desktop-nav" aria-label="Primary Navigation">
+                    <a href="#work">Work</a>
+                    <a href="#studio">Studio</a>
+                    <a href="#packages">Packages</a>
+                    <a href="#inquire">Inquire</a>
+                </nav>
+
+                <!-- CTA & Mobile Hamburger -->
+                <div class="header-actions">
+                    <a href="#inquire" class="btn btn-gold header-cta">Book a Session</a>
+                    <button id="mobile-toggle" class="mobile-toggle" aria-label="Toggle Menu" aria-expanded="false">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.8" stroke-linecap="round">
+                            <line x1="3" y1="6" x2="21" y2="6"></line>
+                            <line x1="3" y1="12" x2="21" y2="12"></line>
+                            <line x1="3" y1="18" x2="21" y2="18"></line>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Mobile Hamburger Drawer -->
+            <div id="mobile-drawer" class="mobile-drawer">
+                <nav aria-label="Mobile Navigation">
+                    <a href="#work" class="mobile-link">Work</a>
+                    <a href="#studio" class="mobile-link">Studio</a>
+                    <a href="#packages" class="mobile-link">Packages</a>
+                    <a href="#inquire" class="mobile-link">Inquire</a>
+                    <a href="#inquire" class="btn btn-gold mobile-link-cta">Book a Session</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- ==================== FULL-VIEWPORT EDITORIAL HERO ==================== -->
+    <section id="top" class="hero">
+        <div class="hero-media">
+            <img src="Camra bg.avif"
+                onerror="this.src='https://placehold.co/1920x1080/0f0f11/d4af37?text=Lumina+%26+Lens+Studio'"
+                alt="Dramatic studio lighting setup at Wave & Lens Studio">
+            <div class="hero-overlay"></div>
+        </div>
+
+        <div class="hero-content">
+            <div class="hero-badge animate-fade-up">
+                <span>Fine Art &amp; Commercial Photography</span>
+            </div>
+
+            <h1 class="hero-title animate-fade-up delay-1">
+                Sculpting Shadow Into <em>Timeless</em> Visual Poetry
+            </h1>
+
+            <p class="hero-subtitle animate-fade-up delay-2">
+                An editorial and fine-art photography house in New York &amp; Paris, crafting heirloom wedding
+                narratives, luxury brand campaigns, and intimate medium-format portraiture.
+            </p>
+
+            <div class="hero-cta-group animate-fade-up delay-3">
+                <a href="#work" class="btn btn-gold">
+                    <span>Explore Portfolio</span>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="7" y1="17" x2="17" y2="7"></line>
+                        <polyline points="7 7 17 7 17 17"></polyline>
+                    </svg>
+                </a>
+                <a href="#packages" class="btn btn-outline">
+                    <span>View Packages</span>
+                </a>
+            </div>
+        </div>
+
+        <div class="scroll-cue" aria-hidden="true">
+            <span>Scroll</span>
+            <div class="scroll-line"></div>
+        </div>
+    </section>
+
+    <!-- ==================== INTERACTIVE PORTFOLIO GALLERY ==================== -->
+    <section id="work" class="portfolio-section section-padding">
+        <div class="container">
+            <div class="portfolio-header">
+                <div>
+                    <span class="eyebrow">Selected Commissions</span>
+                    <h2 class="section-title">Curated Archives</h2>
+                </div>
+                <p class="section-subtitle">
+                    Captured on 100MP medium-format digital and analog film stock. Select any frame to inspect camera
+                    optics, exposure metadata, and story notes.
+                </p>
+            </div>
+
+            <!-- Category Filter Pills -->
+            <div class="filter-bar" role="tablist" aria-label="Portfolio Categories">
+                <button class="filter-btn active" data-filter="all" role="tab" aria-selected="true">All</button>
+                <button class="filter-btn" data-filter="weddings" role="tab" aria-selected="false">Weddings</button>
+                <button class="filter-btn" data-filter="editorial" role="tab" aria-selected="false">Editorial &amp;
+                    Fashion</button>
+                <button class="filter-btn" data-filter="commercial" role="tab" aria-selected="false">Commercial</button>
+                <button class="filter-btn" data-filter="portraits" role="tab" aria-selected="false">Portraits</button>
+            </div>
+
+            <!-- Masonry Grid Container -->
+            <div id="masonry-grid" class="masonry-grid">
+                <!-- Populated dynamically by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== ABOUT STUDIO & LEAD PHOTOGRAPHER ==================== -->
+    <section id="studio" class="about-section section-padding">
+        <div class="container">
+            <div class="about-grid">
+                <!-- Studio Portrait Column -->
+                <div class="about-portrait-wrap">
+                    <div class="about-portrait-card">
+                        <img src="photo-1554048612-b6a482bc67e5.avif"
+                            onerror="this.src='https://placehold.co/800x1000/16161a/d4af37?text=Julian+Vance'"
+                            alt="Principal Photographer Julian Vance in the studio">
+                        <div class="portrait-caption">
+                            <h3>Simant Tudu</h3>
+                            <p>Founder &amp; Principal Director</p>
+                        </div>
+                    </div>
+                    <div class="about-frame-offset" aria-hidden="true"></div>
+                </div>
+
+                <!-- Philosophy, Metrics & Equipment Column -->
+                <div class="about-narrative">
+                    <div>
+                        <span class="eyebrow">The Atelier</span>
+                        <h2 class="section-title">Chiaroscuro Meets Architectural Minimalism</h2>
+                    </div>
+
+                    <p>
+                        Founded in 2024 by cinematographer-turned-photographer Julian Vance, <strong>Wave &amp; Lens
+                            Studio</strong> approaches every commission as a still frame from an unmade European art
+                        film. We favor sculptural directional light, tactile silver-halide grain, and quiet emotional
+                        candor over transient trends.
+                    </p>
+
+                    <p>
+                        Operating from our 3,200 sq. ft. north-facing daylight loft in Manhattan’s Cast-Iron District,
+                        our team travels worldwide for editorial campaigns, destination celebrations, and private
+                        portrait sittings.
+                    </p>
+
+                    <!-- Key Studio Metrics -->
+                    <div class="metrics-grid">
+                        <div class="metric-item">
+                            <h4>2+</h4>
+                            <span>Years Experience</span>
+                        </div>
+                        <div class="metric-item">
+                            <h4>3+</h4>
+                            <span>Commissions</span>
+                        </div>
+                        <div class="metric-item">
+                            <h4>2</h4>
+                            <span>Publications</span>
+                        </div>
+                    </div>
+
+                    <!-- Signature Equipment Highlights -->
+                    <div class="gear-grid">
+                        <div class="gear-box">
+                            <h5>Medium Format Systems</h5>
+                            <p>Hasselblad H6D-100c, Phase One IQ4 150MP, and vintage Pentax 67II &amp; Hasselblad 500C/M
+                                analog film bodies.</p>
+                        </div>
+                        <div class="gear-box">
+                            <h5>Cinema &amp; Strobe Lighting</h5>
+                            <p>Profoto Pro-11 packs, Broncolor Para parabolic modifiers, and custom optical fresnel
+                                tungsten spot fixtures.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== CURATED SERVICE PACKAGES ==================== -->
+    <section id="packages" class="packages-section section-padding">
+        <div class="container">
+            <div class="section-center-header">
+                <span class="eyebrow">Commissions &amp; Investment</span>
+                <h2 class="section-title">Curated Service Packages</h2>
+                <p class="section-subtitle">
+                    Tailored visual production packages designed for individuals, couples, and design-led brands. Select
+                    any tier to pre-fill your studio inquiry.
+                </p>
+            </div>
+
+            <div class="packages-grid">
+                <!-- Package 1: Editorial Portrait -->
+                <article class="package-card">
+                    <div>
+                        <div class="package-top-meta">
+                            <span>01 / Individual &amp; Press</span>
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                                <path
+                                    d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z">
+                                </path>
+                                <circle cx="12" cy="13" r="4"></circle>
+                            </svg>
+                        </div>
+                        <h3 class="package-title">Editorial Portrait</h3>
+                        <p class="package-desc">
+                            Intimate character portraiture for founders, recording artists, authors, and personal legacy
+                            archives.
+                        </p>
+                        <div class="package-price-box">
+                            <span class="price-label">Starting Investment</span>
+                            <div class="price-amount">$1,450</div>
+                        </div>
+                        <ul class="deliverables-list">
+                            <li>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg>
+                                <span>3-hour private sitting in our SoHo daylight studio</span>
+                            </li>
+                            <li>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg>
+                                <span>Up to 4 wardrobe &amp; sculptural lighting setups</span>
+                            </li>
+                            <li>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg>
+                                <span>20 master-retouched high-res portraits (Color &amp; B&amp;W)</span>
+                            </li>
+                            <li>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg>
+                                <span>One signed museum-grade Hahnemühle baryta print</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <button type="button" class="btn btn-gold-outline btn-full"
+                        onclick="inquirePackage('Editorial Portrait')">
+                        Inquire
+                    </button>
+                </article>
+
+                <!-- Package 2: Full-Day Wedding (Most Popular) -->
+                <article class="package-card featured">
+                    <span class="popular-badge">Most Popular</span>
+                    <div>
+                        <div class="package-top-meta">
+                            <span>02 / Celebrations</span>
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                                <polygon
+                                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
+                                </polygon>
+                            </svg>
+                        </div>
+                        <h3 class="package-title">Full-Day Wedding</h3>
+                        <p class="package-desc">
+                            Documentary and editorial storytelling capturing unscripted emotion, architectural grandeur,
+                            and heirloom moments.
+                        </p>
+                        <div class="package-price-box">
+                            <span class="price-label">Starting Investment</span>
+                            <div class="price-amount">$5,200</div>
+                        </div>
+                        <ul class="deliverables-list">
+                            <li>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg>
+                                <span>Up to 10 hours of full-day coverage worldwide</span>
+                            </li>
+                            <li>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg>
+                                <span>Julian Vance + second senior editorial photographer</span>
+                            </li>
+                            <li>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg>
+                                <span>700+ hand-graded digital negatives + 35mm film rolls</span>
+                            </li>
+                            <li>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg>
+                                <span>48-hour editorial preview gallery &amp; heirloom linen box</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <button type="button" class="btn btn-gold btn-full" onclick="inquirePackage('Full-Day Wedding')">
+                        Inquire
+                    </button>
+                </article>
+
+                <!-- Package 3: Commercial Brand -->
+                <article class="package-card">
+                    <div>
+                        <div class="package-top-meta">
+                            <span>03 / Fashion &amp; Product</span>
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <line x1="14.31" y1="8" x2="20.05" y2="17.94"></line>
+                                <line x1="9.69" y1="8" x2="21.17" y2="8"></line>
+                                <line x1="7.38" y1="12" x2="13.12" y2="2.06"></line>
+                                <line x1="9.69" y1="16" x2="3.95" y2="6.06"></line>
+                                <line x1="14.31" y1="16" x2="2.83" y2="16"></line>
+                                <line x1="16.62" y1="12" x2="10.88" y2="21.94"></line>
+                            </svg>
+                        </div>
+                        <h3 class="package-title">Commercial Brand</h3>
+                        <p class="package-desc">
+                            High-impact visual campaigns tailored for luxury fashion labels, hospitality groups, and
+                            architectural spaces.
+                        </p>
+                        <div class="package-price-box">
+                            <span class="price-label">Starting Investment</span>
+                            <div class="price-amount">$3,800</div>
+                        </div>
+                        <ul class="deliverables-list">
+                            <li>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg>
+                                <span>Full creative direction, moodboarding &amp; lighting plot</span>
+                            </li>
+                            <li>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg>
+                                <span>100MP medium-format capture with live client tethering</span>
+                            </li>
+                            <li>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg>
+                                <span>35 editorial-grade retouched campaign hero images</span>
+                            </li>
+                            <li>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg>
+                                <span>Global print, OOH &amp; digital commercial licensing</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <button type="button" class="btn btn-gold-outline btn-full"
+                        onclick="inquirePackage('Commercial Brand')">
+                        Inquire
+                    </button>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== INTERACTIVE BOOKING & INQUIRY SECTION ==================== -->
+    <section id="inquire" class="inquiry-section section-padding">
+        <div class="container">
+            <div class="inquiry-grid">
+                <!-- Left Studio Info Column -->
+                <div class="inquiry-info">
+                    <div>
+                        <span class="eyebrow">Reserve Your Dates</span>
+                        <h2 class="section-title">Begin Your Visual Narrative</h2>
+                    </div>
+
+                    <p class="section-subtitle">
+                        We accept a curated number of commissions each quarter to guarantee undivided creative focus.
+                        Share your vision and timeline, and our studio producer will craft a bespoke treatment.
+                    </p>
+
+                    <div class="guarantee-pill">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <polyline points="12 6 12 12 16 14"></polyline>
+                        </svg>
+                        <span>Guaranteed Studio Response Within 24 Hours</span>
+                    </div>
+
+                    <div class="contact-details-list">
+                        <div class="contact-item">
+                            <div class="contact-icon-circle">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                    <circle cx="12" cy="10" r="3"></circle>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4>LOCATION </h4>
+                                <p>Kandra, Durang, Seraikella Kharsawan, <br>Jharkhand, 832402, India</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-icon-circle">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                    <path
+                                        d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z">
+                                    </path>
+                                    <polyline points="22,6 12,13 2,6"></polyline>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4>Direct Commissions</h4>
+                                <p>tudusimant8@gmail.com<br>+91 9798-614-863</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-icon-circle">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <line x1="2" y1="12" x2="22" y2="12"></line>
+                                    <path
+                                        d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z">
+                                    </path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4>Travel &amp; Representation</h4>
+                                <p>Available all over Jharkhand &bull; Jamshedpur </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Validated Form Column -->
+                <div class="form-card">
+                    <form id="inquiry-form" novalidate>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="full-name">Full Name *</label>
+                                <input type="text" id="full-name" class="form-control" placeholder="Camille Laurent"
+                                    required>
+                                <span id="err-name" class="error-text">Please enter your full name.</span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email-address">Email Address *</label>
+                                <input type="email" id="email-address" class="form-control"
+                                    placeholder="camille@domain.com" required>
+                                <span id="err-email" class="error-text">Please enter a valid email address.</span>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="package-select">Package / Session Type *</label>
+                                <select id="package-select" class="form-control">
+                                    <option value="Editorial Portrait">Editorial Portrait ($1,450+)</option>
+                                    <option value="Full-Day Wedding" selected>Full-Day Wedding ($5,200+)</option>
+                                    <option value="Commercial Brand">Commercial Brand ($3,800+)</option>
+                                    <option value="Custom Editorial Commission">Custom Editorial Commission</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="preferred-date">Preferred Date *</label>
+                                <input type="date" id="preferred-date" class="form-control" required>
+                                <span id="err-date" class="error-text">Please select a preferred date.</span>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="vision-notes">Location &amp; Creative Vision *</label>
+                            <textarea id="vision-notes" class="form-control"
+                                placeholder="Share your venue, aesthetic references, deliverables, or creative direction..."
+                                required></textarea>
+                            <span id="err-notes" class="error-text">Please share a brief overview of your
+                                project.</span>
+                        </div>
+
+                        <button type="submit" class="btn btn-gold btn-full">
+                            <span>Submit Studio Inquiry</span>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="22" y1="2" x2="11" y2="13"></line>
+                                <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                            </svg>
+                        </button>
+                    </form>
+
+                    <!-- Inline Personalized Confirmation State -->
+                    <div id="confirmation-panel" class="confirmation-panel" aria-live="polite">
+                        <div class="confirmation-icon">
+                            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                        </div>
+                        <h3>Commission Inquiry Logged</h3>
+                        <p id="confirmation-message"></p>
+                        <button type="button" id="new-inquiry-btn" class="btn btn-gold-outline" onclick="sendMail()">
+                            Submit Another Inquiry
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <Script>
+        function sendMail() {
+            let perms = {
+                name: document.getElementById("full-name").value,
+                email: document.getElementById("email-address").value,
+                package: document.getElementById("package-select").value,
+                date: document.getElementById("preferred-date").value,
+                location: document.getElementById("vision-notes").value,
+            }
+            emailjs.send("service_h3k39yg","template_l8ew0gn",perms).then(alert("Email sent"));
+        }
+    </Script>
+
+    <!-- ==================== REFINED EDITORIAL FOOTER ==================== -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-inner">
+                <a href="#top" class="brand-logo">
+                    <span class="brand-monogram">W</span>
+                    <span class="brand-name">Wave <em>&amp;</em> Lens</span>
+                </a>
+
+                <p class="footer-copy">
+                    &copy; 2026 Wave &amp; Lens Studio LLC. All Visual Works Protected by International Copyright.
+                </p>
+
+                <div class="footer-links">
+                    <a href="#inquire" class="social-link" aria-label="Instagram">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                        </svg>
+                    </a>
+                    <a href="#work" class="social-link" aria-label="Portfolio Archive">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <line x1="14.31" y1="8" x2="20.05" y2="17.94"></line>
+                            <line x1="9.69" y1="8" x2="21.17" y2="8"></line>
+                            <line x1="7.38" y1="12" x2="13.12" y2="2.06"></line>
+                        </svg>
+                    </a>
+                    <a href="#top" class="back-to-top">
+                        <span>Back to Top</span>
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="12" y1="19" x2="12" y2="5"></line>
+                            <polyline points="5 12 12 5 19 12"></polyline>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ==================== FULL-SCREEN LIGHTBOX MODAL ==================== -->
+    <div id="lightbox" class="lightbox-backdrop" role="dialog" aria-modal="true" aria-labelledby="lb-title">
+        <button id="lb-close" class="lightbox-close" aria-label="Close Lightbox">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+        </button>
+
+        <button id="lb-prev" class="lightbox-nav lightbox-prev" aria-label="Previous Photograph">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="15 18 9 12 15 6"></polyline>
+            </svg>
+        </button>
+
+        <button id="lb-next" class="lightbox-nav lightbox-next" aria-label="Next Photograph">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+        </button>
+
+        <div class="lightbox-dialog">
+            <div class="lightbox-media">
+                <img id="lb-img" src="" alt="">
+            </div>
+
+            <div class="lightbox-details">
+                <div class="lightbox-top-row">
+                    <span id="lb-cat" class="lightbox-cat">Category</span>
+                    <span id="lb-counter" class="lightbox-counter">01 / 10</span>
+                </div>
+
+                <h3 id="lb-title" class="lightbox-title">Title</h3>
+                <p id="lb-story" class="lightbox-story">Story description</p>
+
+                <div class="exif-table">
+                    <div class="exif-row">
+                        <span class="exif-label">Camera Body</span>
+                        <span id="lb-camera" class="exif-value">Hasselblad H6D-100c</span>
+                    </div>
+                    <div class="exif-row">
+                        <span class="exif-label">Optics</span>
+                        <span id="lb-lens" class="exif-value">HC 80mm f/2.8</span>
+                    </div>
+                    <div class="exif-row">
+                        <span class="exif-label">Exposure</span>
+                        <span id="lb-exif" class="exif-value gold">1/250s &bull; f/2.8 &bull; ISO 100</span>
+                    </div>
+                    <div class="exif-row">
+                        <span class="exif-label">Location</span>
+                        <span id="lb-location" class="exif-value">Lake Como, Italy</span>
+                    </div>
+                </div>
+
+                <button type="button" id="lb-book-similar" class="btn btn-gold btn-full">
+                    <span>Book Similar Shoot</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== VANILLA JAVASCRIPT ==================== -->
+    <script>
+        // 1. Curated 10-Piece Portfolio Dataset with EXIF & Package Mapping
+        const portfolioData = [
+            {
+                id: 1,
+                title: "Vows at Villa Balbiano",
+                category: "weddings",
+                categoryLabel: "Weddings",
+                packageMap: "Full-Day Wedding",
+                ratioClass: "ratio-3-4",
+                image: "copole with flower.avif",
+                camera: "Hasselblad H6D-100c",
+                lens: "HC 80mm f/2.8",
+                exif: "1/500s • f/2.8 • ISO 100",
+                location: "Lake Como, Italy",
+                story: "Captured during late-afternoon mist overlooking the Italian Alps, balancing natural lakeside reflections with subtle fill lighting."
+            },
+            {
+                id: 2,
+                title: "Nocturne in Silk",
+                category: "editorial",
+                categoryLabel: "Editorial & Fashion",
+                packageMap: "Commercial Brand",
+                ratioClass: "ratio-4-5",
+                image: "02.avif",
+                camera: "Leica SL2-S",
+                lens: "APO-Summicron-SL 50mm",
+                exif: "1/200s • f/2.0 • ISO 160",
+                location: "Paris Fashion Week, France",
+                story: "Autumn/Winter couture lookbook study exploring sculptural silhouettes and hard key-light falloff against obsidian velvet."
+            },
+            {
+                id: 3,
+                title: "Solitude in Chiaroscuro",
+                category: "portraits",
+                categoryLabel: "Portraits",
+                packageMap: "Editorial Portrait",
+                ratioClass: "ratio-3-4",
+                image: "03.avif",
+                camera: "Hasselblad 500C/M (Portra 400)",
+                lens: "Carl Zeiss Planar 80mm f/2.8",
+                exif: "1/125s • f/4.0 • ISO 400",
+                location: "SoHo Loft, New York",
+                story: "An intimate medium-format analog portrait commissioning single-source north window illumination."
+            },
+            {
+                id: 4,
+                title: "Chronograph Heritage",
+                category: "commercial",
+                categoryLabel: "Commercial",
+                packageMap: "Commercial Brand",
+                ratioClass: "ratio-4-3",
+                image: "04.avif",
+                camera: "Phase One IQ4 150MP",
+                lens: "Schneider 120mm Macro",
+                exif: "1/160s • f/11 • ISO 50",
+                location: "Geneva, Switzerland",
+                story: "Macro studio campaign highlighting brushed titanium bevels and sapphire crystal refraction using dual strip softboxes."
+            },
+            {
+                id: 5,
+                title: "Midnight Waltz in Paris",
+                category: "weddings",
+                categoryLabel: "Weddings",
+                packageMap: "Full-Day Wedding",
+                ratioClass: "ratio-4-3",
+                image: "05.avif",
+                camera: "Leica M11",
+                lens: "Summilux-M 35mm f/1.4",
+                exif: "1/60s • f/1.4 • ISO 800",
+                location: "Place Vendôme, Paris",
+                story: "Candid twilight celebration captured entirely with ambient Parisian streetlamps and archival silver-halide toning."
+            },
+            {
+                id: 6,
+                title: "Avant-Garde Monolith",
+                category: "editorial",
+                categoryLabel: "Editorial & Fashion",
+                packageMap: "Commercial Brand",
+                ratioClass: "ratio-3-4",
+                image: "06.avif",
+                camera: "Hasselblad H6D-100c",
+                lens: "HC 100mm f/2.2",
+                exif: "1/320s • f/4.0 • ISO 100",
+                location: "Milan, Italy",
+                story: "Commissioned cover story contrasting architectural brutalism with fluid modern tailoring."
+            },
+            {
+                id: 7,
+                title: "Botanical Essences No. 04",
+                category: "commercial",
+                categoryLabel: "Commercial",
+                packageMap: "Commercial Brand",
+                ratioClass: "ratio-4-5",
+                image: "07.avif",
+                camera: "Hasselblad H6D-100c",
+                lens: "HC Macro 120mm II",
+                exif: "1/200s • f/8.0 • ISO 64",
+                location: "Grasse, France",
+                story: "Global fragrance launch imagery utilizing optical gobos to cast dappled Mediterranean sunlight across amber glass."
+            },
+            {
+                id: 8,
+                title: "The Composer's Gaze",
+                category: "portraits",
+                categoryLabel: "Portraits",
+                packageMap: "Editorial Portrait",
+                ratioClass: "ratio-4-5",
+                image: "08.avif",
+                camera: "Leica SL2-S",
+                lens: "Summilux-SL 50mm f/1.4",
+                exif: "1/250s • f/2.0 • ISO 200",
+                location: "Vienna, Austria",
+                story: "Editorial press portrait created ahead of the Philharmonic winter residency."
+            },
+            {
+                id: 9,
+                title: "Golden Hour in Tuscany",
+                category: "weddings",
+                categoryLabel: "Weddings",
+                packageMap: "Full-Day Wedding",
+                ratioClass: "ratio-3-4",
+                image: "09.avif",
+                camera: "Pentax 67II (Kodak Gold 200)",
+                lens: "SMC Takumar 105mm f/2.4",
+                exif: "1/500s • f/2.8 • ISO 200",
+                location: "Val d'Orcia, Italy",
+                story: "Warm analog medium-format frame celebrating an intimate cypress-lined estate reception."
+            },
+            {
+                id: 10,
+                title: "Obsidian Sculpture Study",
+                category: "portraits",
+                categoryLabel: "Portraits",
+                packageMap: "Editorial Portrait",
+                ratioClass: "ratio-3-4",
+                image: "10.avif",
+                camera: "Hasselblad H6D-100c",
+                lens: "HC 100mm f/2.2",
+                exif: "1/160s • f/5.6 • ISO 64",
+                location: "SoHo Loft, New York",
+                story: "Fine art studio study utilizing a single gridded beauty dish and negative fill flags."
+            }
+        ];
+
+        // Application State
+        let filteredItems = [...portfolioData];
+        let activeLightboxIdx = 0;
+
+        // DOM References
+        const masonryGrid = document.getElementById('masonry-grid');
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const lightbox = document.getElementById('lightbox');
+        const lbImg = document.getElementById('lb-img');
+        const lbCat = document.getElementById('lb-cat');
+        const lbCounter = document.getElementById('lb-counter');
+        const lbTitle = document.getElementById('lb-title');
+        const lbStory = document.getElementById('lb-story');
+        const lbCamera = document.getElementById('lb-camera');
+        const lbLens = document.getElementById('lb-lens');
+        const lbExif = document.getElementById('lb-exif');
+        const lbLocation = document.getElementById('lb-location');
+        const lbBookSimilar = document.getElementById('lb-book-similar');
+
+        // Render Portfolio Masonry Grid
+        function renderPortfolio(category = 'all') {
+            filteredItems = category === 'all'
+                ? [...portfolioData]
+                : portfolioData.filter(item => item.category === category);
+
+            masonryGrid.innerHTML = '';
+
+            filteredItems.forEach((item, index) => {
+                const card = document.createElement('article');
+                card.className = 'gallery-card';
+                card.setAttribute('tabindex', '0');
+                card.setAttribute('role', 'button');
+                card.setAttribute('aria-label', `Inspect ${item.title}`);
+
+                card.innerHTML = `
+                    <div class="gallery-thumb ${item.ratioClass}">
+                        <img 
+                            src="${item.image}" 
+                            onerror="this.src='https://placehold.co/800x1000/16161a/d4af37?text=${encodeURIComponent(item.title)}'"
+                            alt="${item.title}"
+                            loading="lazy"
+                        >
+                        <div class="gallery-overlay">
+                            <span class="overlay-cat">${item.categoryLabel}</span>
+                            <h3 class="overlay-title">${item.title}</h3>
+                            <div class="overlay-meta">
+                                <span>${item.camera}</span>
+                                <span class="inspect-tag">
+                                    Inspect
+                                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <polyline points="15 3 21 3 21 9"></polyline>
+                                        <polyline points="9 21 3 21 3 15"></polyline>
+                                        <line x1="21" y1="3" x2="14" y2="10"></line>
+                                        <line x1="3" y1="21" x2="10" y2="14"></line>
+                                    </svg>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                `;
+
+                card.addEventListener('click', () => openLightbox(index));
+                card.addEventListener('keydown', (e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        openLightbox(index);
+                    }
+                });
+
+                masonryGrid.appendChild(card);
+            });
+        }
+
+        // Category Filter Click Handlers
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => {
+                    b.classList.remove('active');
+                    b.setAttribute('aria-selected', 'false');
+                });
+                btn.classList.add('active');
+                btn.setAttribute('aria-selected', 'true');
+
+                renderPortfolio(btn.dataset.filter);
+            });
+        });
+
+        // Lightbox Controls
+        function openLightbox(index) {
+            activeLightboxIdx = index;
+            updateLightboxUI();
+            lightbox.classList.add('open');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            lightbox.classList.remove('open');
+            document.body.style.overflow = '';
+        }
+
+        function updateLightboxUI() {
+            const item = filteredItems[activeLightboxIdx];
+            if (!item) return;
+
+            lbImg.src = item.image;
+            lbImg.alt = item.title;
+            lbCat.textContent = item.categoryLabel;
+            lbCounter.textContent = `${String(activeLightboxIdx + 1).padStart(2, '0')} / ${String(filteredItems.length).padStart(2, '0')}`;
+            lbTitle.textContent = item.title;
+            lbStory.textContent = item.story;
+            lbCamera.textContent = item.camera;
+            lbLens.textContent = item.lens;
+            lbExif.textContent = item.exif;
+            lbLocation.textContent = item.location;
+
+            lbBookSimilar.onclick = () => {
+                closeLightbox();
+                inquirePackage(item.packageMap, `Inspired by "${item.title}" (${item.location}). `);
+            };
+        }
+
+        function showNextSlide() {
+            activeLightboxIdx = (activeLightboxIdx + 1) % filteredItems.length;
+            updateLightboxUI();
+        }
+
+        function showPrevSlide() {
+            activeLightboxIdx = (activeLightboxIdx - 1 + filteredItems.length) % filteredItems.length;
+            updateLightboxUI();
+        }
+
+        document.getElementById('lb-close').addEventListener('click', closeLightbox);
+        document.getElementById('lb-next').addEventListener('click', showNextSlide);
+        document.getElementById('lb-prev').addEventListener('click', showPrevSlide);
+
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) closeLightbox();
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (!lightbox.classList.contains('open')) return;
+            if (e.key === 'Escape') closeLightbox();
+            if (e.key === 'ArrowRight') showNextSlide();
+            if (e.key === 'ArrowLeft') showPrevSlide();
+        });
+
+        // Pre-fill Booking Form & Smooth Scroll
+        function inquirePackage(packageName, prefillNote = '') {
+            const selectEl = document.getElementById('package-select');
+            const notesEl = document.getElementById('vision-notes');
+            const inquiryForm = document.getElementById('inquiry-form');
+            const confirmationPanel = document.getElementById('confirmation-panel');
+
+            for (let i = 0; i < selectEl.options.length; i++) {
+                if (selectEl.options[i].value === packageName) {
+                    selectEl.selectedIndex = i;
+                    break;
+                }
+            }
+
+            if (prefillNote && !notesEl.value.includes(prefillNote)) {
+                notesEl.value = prefillNote + notesEl.value;
+            }
+
+            confirmationPanel.classList.remove('visible');
+            inquiryForm.style.display = 'block';
+
+            document.getElementById('inquire').scrollIntoView({ behavior: 'smooth' });
+            setTimeout(() => {
+                document.getElementById('full-name').focus();
+            }, 600);
+        }
+
+        // Form Validation & Inline Confirmation
+        const inquiryForm = document.getElementById('inquiry-form');
+        const confirmationPanel = document.getElementById('confirmation-panel');
+        const confirmationMessage = document.getElementById('confirmation-message');
+
+        inquiryForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            const nameEl = document.getElementById('full-name');
+            const emailEl = document.getElementById('email-address');
+            const dateEl = document.getElementById('preferred-date');
+            const notesEl = document.getElementById('vision-notes');
+            const packageVal = document.getElementById('package-select').value;
+
+            let valid = true;
+
+            // Name validation
+            if (!nameEl.value.trim()) {
+                nameEl.classList.add('invalid');
+                document.getElementById('err-name').classList.add('visible');
+                valid = false;
+            } else {
+                nameEl.classList.remove('invalid');
+                document.getElementById('err-name').classList.remove('visible');
+            }
+
+            // Email validation
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailPattern.test(emailEl.value.trim())) {
+                emailEl.classList.add('invalid');
+                document.getElementById('err-email').classList.add('visible');
+                valid = false;
+            } else {
+                emailEl.classList.remove('invalid');
+                document.getElementById('err-email').classList.remove('visible');
+            }
+
+            // Date validation
+            if (!dateEl.value) {
+                dateEl.classList.add('invalid');
+                document.getElementById('err-date').classList.add('visible');
+                valid = false;
+            } else {
+                dateEl.classList.remove('invalid');
+                document.getElementById('err-date').classList.remove('visible');
+            }
+
+            // Notes validation
+            if (!notesEl.value.trim()) {
+                notesEl.classList.add('invalid');
+                document.getElementById('err-notes').classList.add('visible');
+                valid = false;
+            } else {
+                notesEl.classList.remove('invalid');
+                document.getElementById('err-notes').classList.remove('visible');
+            }
+
+            if (!valid) return;
+
+            confirmationMessage.innerHTML = `
+                Thank you, <strong>${nameEl.value.trim()}</strong>. Our studio producer has logged your request for an 
+                <span class="gold-highlight">${packageVal}</span> commission on <strong>${dateEl.value}</strong> and will reply to 
+                <strong>${emailEl.value.trim()}</strong> within 24 hours.
+            `;
+
+            inquiryForm.style.display = 'none';
+            confirmationPanel.classList.add('visible');
+        });
+
+        document.getElementById('new-inquiry-btn').addEventListener('click', () => {
+
+            inquiryForm.reset();
+            confirmationPanel.classList.remove('visible');
+            inquiryForm.style.display = 'block';
+        });
+
+
+        // Sticky Header Scroll State & Mobile Drawer Toggle
+        const siteHeader = document.getElementById('site-header');
+        const mobileToggle = document.getElementById('mobile-toggle');
+        const mobileDrawer = document.getElementById('mobile-drawer');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 40) {
+                siteHeader.classList.add('scrolled');
+            } else {
+                siteHeader.classList.remove('scrolled');
+            }
+        });
+
+        mobileToggle.addEventListener('click', () => {
+            const isOpen = mobileDrawer.classList.toggle('open');
+            mobileToggle.setAttribute('aria-expanded', String(isOpen));
+        });
+
+        document.querySelectorAll('.mobile-drawer a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileDrawer.classList.remove('open');
+                mobileToggle.setAttribute('aria-expanded', 'false');
+            });
+        });
+
+        // Set Date Picker Minimum Date to Today & Initialize Gallery
+        const today = new Date().toISOString().split('T')[0];
+        document.getElementById('preferred-date').setAttribute('min', today);
+
+        window.addEventListener('DOMContentLoaded', () => {
+            renderPortfolio('all');
+        });
+    </script>
+</body>
+
+</html>
