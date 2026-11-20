@@ -2120,7 +2120,7 @@
                                 project.</span>
                         </div>
 
-                        <button type="submit" class="btn btn-gold btn-full">
+                        <button type="submit" class="btn btn-gold btn-full" onclick="sendMail()">
                             <span>Submit Studio Inquiry</span>
                             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                 stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -2140,7 +2140,7 @@
                         </div>
                         <h3>Commission Inquiry Logged</h3>
                         <p id="confirmation-message"></p>
-                        <button type="button" id="new-inquiry-btn" class="btn btn-gold-outline" onclick="sendMail()">
+                        <button type="button" id="new-inquiry-btn" class="btn btn-gold-outline">
                             Submit Another Inquiry
                         </button>
                     </div>
@@ -2157,7 +2157,7 @@
                 date: document.getElementById("preferred-date").value,
                 location: document.getElementById("vision-notes").value,
             }
-            emailjs.send("service_h3k39yg","template_l8ew0gn",perms).then(alert("Email sent"));
+            emailjs.send("service_h3k39yg","template_l8ew0gn",perms);
         }
     </Script>
 
